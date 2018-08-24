@@ -1,0 +1,154 @@
+﻿<!doctype html> 
+
+<html lang="en"> 
+
+<head> 
+
+<style>
+#container {
+  position: relative;
+}
+#container canvas, #colorDiv, #dialogDiv {
+  position: absolute;
+}
+
+canvas {
+  border: 1px solid black;
+}
+</style>
+
+<meta charset="UTF-8" />
+	
+<title>COllaborative PLAnning</title>
+
+  
+<script src="node_modules/socket.io/socket.io.js"></script>
+
+<script src="./utils/phaser.min.js"></script> 
+<script src="js/jscolor.js"></script>
+
+<script src="node_modules/@orange-games/phaser-input/build/phaser-input.js"></script>
+    
+<script src="./js/global.js"></script>
+
+<!--  Miscellaneous classes  -->
+<script src="./js/classes/slidingpanelclass.js"></script>
+<script src="./js/classes/customtextclass.js"></script>
+
+<script src="./utils/functions.js"></script>
+
+<!--  database BEs  -->
+<script src="./BEs/users.js"></script>    
+<script src="./BEs/gpx.js"></script>    
+<script src="./BEs/mapsegments.js"></script>  
+<script src="./BEs/waypoints.js"></script>   
+<script src="./BEs/tickers.js"></script> 
+<script src="./BEs/groups.js"></script> 
+<script src="./BEs/UserGroups.js"></script>   
+<script src="./BEs/Ideas.js"></script>  
+<script src="./BEs/friends.js"></script> 
+<script src="./BEs/ideafriends.js"></script> 
+<script src="./BEs/todolist.js"></script> 
+
+<!--  non-database BEs  -->
+<script src="./BEs/options.js"></script>   
+<script src="./BEs/hiddenPanels.js"></script>  
+<script src="./BEs/menus.js"></script>  
+<script src="./BEs/dialog.js"></script> 
+
+<script src="./js/boot.js"></script>
+    
+<script src="./js/load.js"></script>
+
+<script src="./js/intro.js"></script>
+    
+<script src="js/run.js"></script>
+    
+<script src="js/app.js"></script>
+
+ 
+</head>
+
+<body>
+	
+	<table id="map" hidden="true">
+		<tr>
+			<td>
+<div id="mapdiv">
+
+<canvas id="mapCanvas" width="800" height="800">
+	<script>
+      
+
+      // function getMousePos(canvas, evt) {
+      //   var rect = canvas.getBoundingClientRect();
+      //   return {
+      //     x: evt.clientX - rect.left,
+      //     y: evt.clientY - rect.top
+      //   };
+      // }
+      // var canvas = document.getElementById('mapCanvas');
+      // var context = canvas.getContext('2d');
+
+      // canvas.addEventListener('mousemove', function(evt) {
+      //   var mousePos = getMousePos(canvas, evt);
+      //   var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+      //   runState.writeMessage(mousePos.x, mousePos.y);
+      // }, false);
+	</script>
+
+</canvas>
+
+</div>
+</td>
+<td id="cache" >
+
+</td>
+</tr>
+</table>
+
+
+<div id="container">
+  	<div id="gameDiv">
+
+	</div>
+
+	
+	<div id="colorDiv" hidden="true">
+		<select id="item">
+		  <option value="Panel background">Panel background</option>
+		  <option value="Panel foreground">Panel foreground</option>
+		  <option value="Panel title background">Panel title background</option>
+		  <option value="Panel title foreground">Panel title foreground</option>
+		 
+		  <option value="Hover">Hover</option>
+		  
+		  <option value="Dialog background">Dialog background</option>
+		  <option value="Dialog foreground">Dialog foreground</option>
+		  <option value="Dialog title background">Dialog title background</option>
+		  <option value="Dialog title foreground">Dialog title foreground</option>
+		 
+
+		</select>
+
+	    <input name="color2" type="hidden" id="color_value">
+        <button class="jscolor {valueElement: 'color_value'}" id="color_button">Pick a color</button>
+    
+	</div>
+
+	<div id="dialogSpacerDiv" style="height: 80px">
+    </div>
+	
+	<div id="dialogDiv"  hidden="false">
+		
+	</div>
+</div>
+
+
+
+
+
+
+</body>
+
+</html>
